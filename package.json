@@ -16,7 +16,8 @@
     "analyze": "nuxt build --analyze",
     "cy:verify": "cypress verify",
     "cy:open": "cypress open",
-    "cy:run": "cypress run"
+    "cy:run": "cypress run",
+    "heroku-postbuild": "npm run build"
   },
   "dependencies": {
     "nuxt": "^2.14.6",
