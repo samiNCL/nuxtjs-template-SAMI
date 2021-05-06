@@ -40,7 +40,13 @@ export default {
       routes: [
         { href: "/", label: "Home" },
         { href: "/documentation", label: "Documentation" },
-        { href: "/explore", label: "Explore" }
+        { href: "/explore", label: "Notes" },
+        { href: "/questions/1", label: "Browse" },
+        { href: "/twitter.html", label: "Expermental API Integration" },
+        { href: "/control", label: "Expermental Control Pannel" }
+
+        
+
       ]
     };
   }
