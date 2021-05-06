@@ -4,7 +4,7 @@
 
 <style lang="scss" scoped>
 button {
-  @apply px-4 py-1 text-sm bg-surface font-bold;
+  @apply px-4 py-1 text-sm bg-surface font-bold ;
 
   &:focus {
     @apply outline-none;

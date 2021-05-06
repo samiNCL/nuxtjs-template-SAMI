@@ -146,7 +146,7 @@ li {
 }
 
 a {
-  @apply text-primary-500 font-semibold;
+  @apply text-blue-800 font-semibold;
 
   &:hover {
     @apply opacity-75;
@@ -157,3 +157,6 @@ a {
   @apply font-mono text-sm;
 }
 </style>
+
+
+ 
