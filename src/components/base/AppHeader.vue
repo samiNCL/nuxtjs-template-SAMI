@@ -6,7 +6,7 @@
           :to="localePath('/ask')"
           class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded btn inline-block py-2 text-xl font-bold"
         >
-          New Question
+          Ask
         </NuxtLink>
         <button
           class="px-3 py-1 text-xl outline-none md:hidden focus:outline-none"
@@ -40,13 +40,7 @@ export default {
       routes: [
         { href: "/", label: "Home" },
         { href: "/documentation", label: "Documentation" },
-        { href: "/explore", label: "Notes" },
-        { href: "/questions/1", label: "Browse" },
-        { href: "/twitter.html", label: "Expermental API Integration" },
-        { href: "/control", label: "Expermental Control Pannel" }
-
-
-
+        { href: "/explore", label: "Explore" }
       ]
     };
   }
