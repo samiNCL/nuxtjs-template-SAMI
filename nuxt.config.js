@@ -17,9 +17,7 @@ module.exports = {
     meta: [{ charset: "utf-8" }, { name: "viewport", content: "width=device-width, initial-scale=1" }],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
   },
-  plugins: [
-  { src: '~/plugins/vue-good-table', ssr: true }
-],
+  plugins: [{ src: "~/plugins/vue-good-table", ssr: true }, "~/plugins/disqus"],
   /*
    ** Environment variables
    */
@@ -31,7 +29,6 @@ module.exports = {
    ** Customize the progress bar color
    */
   loading: { color: "#3B8070" },
-
 
   /*
    ** Nuxt.js dev-modules
@@ -74,17 +71,13 @@ module.exports = {
     [
       "nuxt-i18n",
       {
-        locales: [
-          { code: "en", iso: "en-US", name: "English" }
-
-        ],
+        locales: [{ code: "en", iso: "en-US", name: "English" }],
         defaultLocale: "en",
         baseUrl: process.env.URL,
         vueI18n: {
           fallbackLocale: "en",
           messages: {
             en: require("./src/locales/en.json")
-
           }
         },
         // Activate the language detection only on deployments

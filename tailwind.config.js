@@ -12,6 +12,10 @@ module.exports = {
       transitionProperty: {
         height: "height"
       },
+      plugins: [
+        require("@tailwindcss/aspect-ratio")
+        // ...
+      ],
       colors: {
         primary: colors.green
       },

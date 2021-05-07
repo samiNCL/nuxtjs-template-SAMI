@@ -13,12 +13,3 @@ body,
 }
 
 // Page Transitions
-
-.page-enter-active,
-.page-leave-active {
-  transition: opacity 0ms ease-out;
-}
-.page-enter,
-.page-leave-active {
-  opacity: 10;
-}

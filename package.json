@@ -20,9 +20,12 @@
     "heroku-postbuild": "npm run build"
   },
   "dependencies": {
+    "@tailwindcss/aspect-ratio": "^0.2.0",
     "nuxt": "^2.14.6",
     "nuxt-i18n": "^6.15.1",
-    "vue-good-table": "^2.21.10"
+    "vue-disqus": "^4.0.1",
+    "vue-good-table": "^2.21.10",
+    "vue-tweet-embed": "^2.4.0"
   },
   "devDependencies": {
     "@fortawesome/free-regular-svg-icons": "^5.15.0",

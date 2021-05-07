@@ -1,113 +1,35 @@
 <template>
-  <div
-    id="app"
-    class="small-container  text-left  pt-24"
-  >
+  <div class="small-container text-left pt-24">
     <h1>Control your questions with your communities</h1>
-        <h1>Build Q&A network community that integrate anywhere! </h1>
-        <h1>How big your community can be ? Try and see people like you coming! </h1>
+    <h1>Build Q&A network community that integrate anywhere!</h1>
+    <h1>How big your community can be ? Try and see people like you coming!</h1>
+    <h1>Add tags to increase descoverability in your connected communities</h1>
+    <h1>Choose your connected services (later)</h1>
 
+    <TwitterFrame />
+    <TwitterBtn />
 
-        <h1>Add tags to increase descoverability in your connected communities </h1>
-        <h1>Choose your connected services (later) </h1>
-
-
-    <employee-form @add:employee="addEmployee" />
-    <employee-table
-      :employees="employees"
-      @delete:employee="deleteEmployee"
-      @edit:employee="editEmployee"
-    />
+    <dis />
   </div>
 </template>
 
 <script>
-import EmployeeTable from '@/components/EmployeeTable.vue'
-import EmployeeForm from '@/components/EmployeeForm.vue'
-
 export default {
-  name: "app",
-  components: {
-    EmployeeTable,
-    EmployeeForm,
+  head() {
+    return {
+      title: "QandA",
+      meta: [
+        { name: "twitter:title", content: "Come to discuss" },
+        { name: "twitter:description", content: "Programming issues" },
+        { name: "twitter:image", content: "/favicon.ico" },
+        { name: "twitter:card", content: "summary-large-image" }
+      ]
+    };
   },
   data() {
     return {
-      employees: []
-    }
-  },
-
-  mounted() {
-    this.getEmployees()
-  },
-
-  methods: {
-    async getEmployees() {
-      try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/users')
-        const data = await response.json()
-        this.employees = data
-      } catch (error) {
-        console.error(error)
-      }
-    },
-
-    async addEmployee(employee) {
-      try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/users', {
-          method: 'POST',
-          body: JSON.stringify(employee),
-          headers: { "Content-type": "application/json; charset=UTF-8" }
-        })
-        const data = await response.json()
-        this.employees = [...this.employees, data]
-      } catch (error) {
-        console.error(error)
-      }
-    },
-
-    async editEmployee(id, updatedEmployee) {
-      try {
-        const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
-          method: 'PUT',
-          body: JSON.stringify(updatedEmployee),
-          headers: { "Content-type": "application/json; charset=UTF-8" }
-        })
-        const data = await response.json()
-        this.employees = this.employees.map(employee => employee.id === id ? data : employee)
-      } catch (error) {
-        console.error(error)
-      }
-    },
-
-    async deleteEmployee(id) {
-      try {
-        await fetch(`https://jsonplaceholder.typicode.com/users/${id}`, {
-          method: 'DELETE'
-        })
-        this.employees = this.employees.filter(employee => employee.id !== id)
-      } catch (error) {
-        console.error(error)
-      }
-    },
-  },
-}
+      id: this.$route.params.id
+    };
+  }
+};
 </script>
-
-<style>
-/* button {
-  background: #009435;
-  border: 1px solid #009435;
-}
-
-button:hover,
-button:active,
-button:focus {
-  background: #32a95d;
-  border: 1px solid #32a95d;
-} */
-
-.small-container {
-  max-width: 680px;
-}
-</style>

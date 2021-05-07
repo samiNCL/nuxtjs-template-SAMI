@@ -4,10 +4,17 @@
       <div class="relative flex justify-between w-full px-3 md:w-auto md:static md:block md:justify-start">
         <NuxtLink
           :to="localePath('/ask')"
-          class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded btn inline-block py-2 text-xl font-bold"
+          class="m-2 bg-blue-500 hover:bg-blue-800 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-600 rounded-full rounded btn inline-block py-2 text-lg font-bold"
         >
-          Ask
+          New Question
         </NuxtLink>
+
+        <!-- <NuxtLink
+         :to="localePath('/questions/1')"
+         class="bg-red-400 hover:bg-red-600 text-white font-bold py-2 px-1 border-b-4 border-red-700 hover:border-red-500 rounded btn inline-block py-1 text-lg font-bold"
+       >
+         Explore
+       </NuxtLink> -->
         <button
           class="px-3 py-1 text-xl outline-none md:hidden focus:outline-none"
           type="button"
@@ -39,14 +46,11 @@ export default {
       isExpanded: false,
       routes: [
         { href: "/", label: "Home" },
-        { href: "/documentation", label: "Documentation" },
-        { href: "/explore", label: "Notes" },
         { href: "/questions/1", label: "Browse" },
-        { href: "/twitter.html", label: "Expermental API Integration" },
-        { href: "/control", label: "Expermental Control Pannel" }
+        { href: "/documentation", label: "Documentation" }
 
-        
-
+        // { href: "/twitter.html", label: "Test0" },
+        // { href: "/control", label: "Test1" }
       ]
     };
   }
@@ -54,8 +58,9 @@ export default {
 </script>
 
 <style scoped>
+/*noinspection ALL*/
 ul .nuxt-link-exact-active {
-  @apply text-blue-800;
+  @apply text-orange-400;
 }
 
 ul a:not(.nuxt-link-exact-active):hover {
