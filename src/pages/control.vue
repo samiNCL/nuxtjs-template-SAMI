@@ -10,6 +10,8 @@
     <TwitterBtn />
 
     <dis />
+    <hr />
+    <script async src="//jsfiddle.net/SamiAlghamdi/9rgtacz8/1/embed/"></script>
   </div>
 </template>
 

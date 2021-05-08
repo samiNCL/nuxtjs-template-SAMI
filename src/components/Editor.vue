@@ -1,5 +1,11 @@
 <template>
   <div class="">
+    <!--    In here you used 2 methods both led to the same functionality. V-model message and @input input function
+
+They both take the input of text area so I can deal with it. V-model much easier.
+
+How to move this with you.
+-->
     <form style="margin: 1%" class="p-8" @submit.prevent="handleSubmit">
       <label class="block mb-2 text-sm font-semibold" for="message">
         {{ $t("contact.message") }}
@@ -9,6 +15,7 @@
       <textarea
         style="border-style: double"
         v-model="message"
+        @input="inputFunction"
         rows="4"
         cols="80"
         id="message"
@@ -65,7 +72,6 @@ export default {
   name: "my-component",
   data() {
     return {
-      // xmsg: "",
       message: "",
       errorMessage: "",
       successMessage: "",
@@ -84,6 +90,9 @@ export default {
       ]
     };
   },
+  // export default{
+  // props:{
+  // 		question:{type:String}
   // used to get data from storage to here.(IDB)
 
   mounted() {
@@ -92,15 +101,20 @@ export default {
     }
   },
   methods: {
-    onCellClick(params) {
-      //Wanna get the question to put it in link. should be there an easier approach
-      // this.rows.push({note:this.message});
-      // you do not need this
-      console.log(params.row);
-      console.log(params.column);
-      console.log(params.rowIndex);
-      console.log(params.event);
+    inputFunction(e) {
+      var x = e.target.value;
+      console.log("Hi , I worked. Find me in Editor.vue.This is my value:" + x);
     },
+
+    // onCellClick(params) {
+    //Wanna get the question to put it in link. should be there an easier approach
+    // this.rows.push({note:this.message});
+    //   // you do not need this
+    //   console.log(params.row);
+    //   console.log(params.column);
+    //   console.log(params.rowIndex);
+    //   console.log(params.event);
+    // },
     handleSubmit() {
       if (!!this.message) {
         this.$ga.event({

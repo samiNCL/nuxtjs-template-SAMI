@@ -11,7 +11,21 @@
     </div>
 
     <div style="min-width: 100%" class="text-left self-end">
-      <Editor />
+      <form>
+        <Editor />
+      </form>
     </div>
   </div>
 </template>
+
+<script>
+//I do not need import and export in Nuxt. All components are globally available.
+
+export default {
+  head() {
+    return {
+      title: "New question"
+    };
+  }
+};
+</script>

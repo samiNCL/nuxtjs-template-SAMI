@@ -1,114 +1,84 @@
 <template>
-  <div class="w-5/6 gap-x-12 pt-24 items-center">
-    <!-- All Questions -->
-    <div class="aq flex flex-row justify-left items-left overflow-hidden">
-      <div class="bg-white-400 w-96 rounded p-5">
-        <h1 class="text-lg font-medium"></h1>
-        <p class="text-sm"></p>
+  <!-- here you used v-on:click , v-bind , computed (return) , method that affect computed
+ -->
 
-        <ul class="items-left">
-          <li v-for="q in OtherQuestions">
-            <nuxt-link :to="q.id"> {{ "👉  " + " " + q.question }}</nuxt-link>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <!-- Answer card  -->
-
-    <div class="flex flex-row justify-left">
-      <div class="h-1/2 rounded p-5" style="border: solid">
-        <h2 class="text-lg font-medium">
+  <div>
+    <!--  -->
+    <div class="pt-24 font-sans lg:flex items-center justify-center bg-blue-darker w-full py-8">
+      <div class="rounded max-w-xl w-full leading-normal border rounded-lg">
+        <h3 class="">
           {{ post.question }}
-        </h2>
-        <p class="text-sm"></p>
-
-        <p>{{ post.detail }}</p>
-        <br />
-
+        </h3>
         <!--  -->
-        <div class="place-items-stretch gap-x-24 flex px-10 flex-row items-center justify">
-          <div>
-            <a
-              href="#"
-              class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
-              onclick="typeWriter()"
-              >Answer</a
-            >
-          </div>
-          <div>
-            <a
-              href="#"
-              class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
-              onclick="typeWriter1()"
-              >Share</a
-            >
-          </div>
-          <div>
-            <a
-              href="#"
-              class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
-              onclick="typeWriter2()"
-              >Edit</a
-            >
-          </div>
+
+        <div class="footer p-1 mx-4 rounded rounded-t-none">
+          <p>{{ post.detail }}</p>
         </div>
 
-        <!--  -->
+        <div class="p-4">
+          <a
+            href="#"
+            class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4"
+            v-on:click="DisplayFunction"
+            >Answer</a
+          >
 
-        <p class="aqx" id="demo"></p>
-        <p class="aqx" id="demo1"></p>
-        <p class="aqx" id="demo2"></p>
+          <!--    Put edit bellow        -->
 
-        <script>
-          let i = 0;
-          let i1 = 0;
-          let i2 = 0;
+          <!-- 1 -->
 
-          let txt = "This is just a demo. Do you like it?";
+          <a href="#" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4" onclick="typeWriter2()"
+            >Edit</a
+          >
 
-          let txt1 = "Done. Shared to: [Twitter].";
+          <!-- 2 -->
 
-          let txt2 = "Sorry. This question is not editable.";
+          <p class="aqx" id="demo2"></p>
 
-          var speed = 35;
-          var speed1 = 35;
-          var speed2 = 35;
+          <!-- 3 -->
 
-          function typeWriter() {
-            if (i < txt.length) {
-              document.getElementById("demo").innerHTML += txt.charAt(i);
-              i++;
-              setTimeout(typeWriter, speed);
-              // location.reload(true);
+          <script>
+            let i2 = 0;
+            let txt2 = "Sorry. This question is not editable.";
+            var speed2 = 35;
+
+            function typeWriter2() {
+              if (i2 < txt2.length) {
+                document.getElementById("demo2").innerHTML += txt2.charAt(i2);
+                i2++;
+                setTimeout(typeWriter2, speed2);
+                // location.reload(true);
+              }
             }
-          }
+          </script>
 
-          function typeWriter1() {
-            if (i1 < txt1.length) {
-              document.getElementById("demo1").innerHTML += txt1.charAt(i1);
-              i1++;
-              setTimeout(typeWriter1, speed1);
-              // location.reload(true);
-            }
-          }
-
-          function typeWriter2() {
-            if (i2 < txt2.length) {
-              document.getElementById("demo2").innerHTML += txt2.charAt(i2);
-              i2++;
-              setTimeout(typeWriter2, speed2);
-              // location.reload(true);
-            }
-          }
-        </script>
+          <!--    Put edit above        -->
+        </div>
       </div>
+      <p class="aqx" id="demo max-w-sm"></p>
+      Put share here
     </div>
 
-    <dis />
+    <!--Here is the problem
+Solved. Thanks God
+-->
+
+    <ul class="block group" v-bind:style="{ display: changeDisplayQ }">
+      <li class="font-bold text-lg aq" v-for="q in OtherQuestions">
+        <nuxt-link :to="q.id"> {{ "👉  " + " " + q.question }}</nuxt-link>
+      </li>
+    </ul>
+
+    <div class="hdn" v-bind:style="{ display: changeDisplay }"><dis /></div>
   </div>
+
+  <!-- End questions -->
+
+  <!--</div> </div>-->
 </template>
 
 <script>
+// use import and export here to get x value from editor and push it to the array
 export default {
   head() {
     return {
@@ -146,10 +116,18 @@ export default {
           question: "What is Bash?",
           detail: "Is it programming language? What the differences between zsh and sh"
         }
-      ]
+      ],
+      display: "none",
+      displayQ: "block"
     };
   },
   computed: {
+    changeDisplay() {
+      return this.display;
+    },
+    changeDisplayQ() {
+      return this.displayQ;
+    },
     post() {
       return this.posts.find(post => post.id === this.id);
     },
@@ -165,6 +143,14 @@ export default {
     NotmyFunction: function () {
       this.isActive = false;
       console.log(this.isActive);
+    },
+    DisplayFunction: function () {
+      //Hide questions, display Answer form ( Disqus)
+      this.display = "block";
+      this.displayQ = "none";
+      // console.log(x);
+      // above x not works. Need import /export in this case. ( From Editor component).
+      //this.rows.push({ note: this.message });
     }
   }
 };
@@ -197,5 +183,9 @@ export default {
 
   background-color: black;
   color: white;
+}
+
+.hdn {
+  display: none;
 }
 </style>
