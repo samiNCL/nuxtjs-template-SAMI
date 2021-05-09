@@ -1,6 +1,8 @@
 <template>
   <div class="flex justify-between px-3 py-2 border rounded bg-surface">
-    <p class="font-mono text-xs opacity-100"><slot /></p>
+    <p class="font-mono text-xs opacity-100">
+      <slot />
+    </p>
     <button class="leading-none focus:outline-none" @click="copyToClipboard">
       <FontAwesomeIcon class="opacity-75 cursor-pointer" icon="copy"></FontAwesomeIcon>
     </button>

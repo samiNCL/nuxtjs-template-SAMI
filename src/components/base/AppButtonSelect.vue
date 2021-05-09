@@ -1,5 +1,7 @@
 <template functional>
-  <button :class="[data.class, data.staticClass]" v-on="listeners"><slot /></button>
+  <button :class="[data.class, data.staticClass]" v-on="listeners">
+    <slot />
+  </button>
 </template>
 
 <style lang="scss" scoped>
@@ -10,26 +12,26 @@ button {
     @apply outline-none;
   }
 
-  //&:first-child {
-  //  @apply rounded-l-full;
-  //}
+  &:first-child {
+    @apply rounded-l-full;
+  }
 
-  //&:last-child {
-  //  @apply rounded-r-full;
-  //}
+  &:last-child {
+    @apply rounded-r-full;
+  }
 }
 
 .dark-mode {
   button.active,
   button:hover {
-    @apply bg-gray-700;
+    @apply bg-blue-700;
   }
 }
 
 .light-mode {
   button.active,
   button:hover {
-    @apply bg-gray-300;
+    @apply bg-gray-400;
   }
 }
 

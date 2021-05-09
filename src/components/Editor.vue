@@ -21,7 +21,10 @@ How to move this with you.
         id="message"
         class="w-full px-3 py-3 text-lg placeholder-gray-200 rounded shadow bg-surface focus:outline-none focus:shadow-outline"
         placeholder="✍️"
+<<<<<<< HEAD
         
+=======
+>>>>>>> MyProject2021
       />
 
       <button v-on:click="handleSubmit" class="p-2 mt-2 btn btn-primary rounded-full" type="submit">
@@ -155,6 +158,10 @@ export default {
 
 <style scoped>
 .aq a:hover {
+<<<<<<< HEAD
   color: palevioletred;
+=======
+  color: red;
+>>>>>>> MyProject2021
 }
 </style>

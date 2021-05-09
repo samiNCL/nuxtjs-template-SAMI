@@ -22,11 +22,7 @@ export default {
   },
   data() {
     return {
-      themes: [
-
-        { value: "light" },
-        { value: "dark"  }
-       ]
+      themes: [{ value: "light" }, { value: "dark" }]
     };
   }
 };
