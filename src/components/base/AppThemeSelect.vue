@@ -7,7 +7,7 @@
       class="inline-flex flex-wrap items-center justify-center"
       :class="{ active: $colorMode.preference === theme.value }"
     >
-      <FontAwesomeIcon :icon="theme.icon" size="sm" class="mr-1" />
+<!--      <FontAwesomeIcon :icon="theme.icon" size="sm" class="mr-1" />-->
       {{ $t("theme." + theme.value) }}
     </AppButtonSelect>
   </div>
