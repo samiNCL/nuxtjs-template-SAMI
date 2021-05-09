@@ -197,9 +197,19 @@ export default {
 -->
 <style scoped>
 /* Make it only for the component inside. You can do it . later.  */
+<<<<<<< Updated upstream
 .page-enter-active,
 .page-leave-active {
   transition: opacity 300ms ease-out;
+=======
+
+.aq {
+  margin: 10px;
+}
+
+.aq a:hover {
+  color: palevioletred;
+>>>>>>> Stashed changes
 }
 .page-enter,
 .page-leave-active {
@@ -207,4 +217,14 @@ export default {
 }
 
 
+<<<<<<< Updated upstream
+=======
+   background-color: black;
+  color: white;
+}
+
+.hdn {
+  display: none;
+}
+>>>>>>> Stashed changes
 </style>
