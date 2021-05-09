@@ -22,15 +22,13 @@ module.exports = {
   plugins: [
   { src: '~/plugins/vue-good-table', ssr: true }
 ],
-=======
+ 
   plugins: [{ src: "~/plugins/vue-good-table", ssr: true }, "~/plugins/disqus",
   { src: '~/plugins/vuex-persist', ssr: false }],
 
->>>>>>> Stashed changes
-=======
+  
   plugins: [{ src: "~/plugins/vue-good-table", ssr: true }, "~/plugins/disqus"],
->>>>>>> MyProject2021
-  /*
+   /*
    ** Environment variables
    */
   env: {
